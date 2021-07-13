@@ -1,23 +1,16 @@
-import logo from './logo.svg';
 import './App.css';
+import Submit from "./components/Submit"
+import Display from "./components/Display"
+import React, {useState} from 'react';
 
 function App() {
+  const [items, setItems] = useState([]);
+  const[add, setAdd] = useState({task:"", isCompleted:false});
+  
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <Submit items={items} setItems={setItems} add={add} setAdd={setAdd} />
+      <Display items={items} setItems={setItems} />
     </div>
   );
 }
